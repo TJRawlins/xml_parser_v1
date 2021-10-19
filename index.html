@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>XML Parser</title>
+  </head>
+  <body>
+    <!-- <div id="results"></div> -->
+    <div class="parse-form">
+      <form>
+        <label>Enter XML Code:</label>
+        <div class="xml-structure">
+          <label>Structured XML</label>
+          <input type="checkbox" id="newline" checked />
+        </div>
+        <textarea> </textarea>
+        <!-- <erml:EndorsementArea EndorseID="1"/>
+        <erml:InstrumentType id="1201" code="Deed">Deed<erml:InstrumentType>
+        <erml:Other conditionq="AbOrTor" answer=TORRENS" tooltip=Certificate of Title No" formatting="" max="7">ABSTRACT</Other>
+        <erml:County tooltip="County Recorded">Clearwater</erml:County>
+        <erml:State tooltip="State Recorded">MN</erml:State> -->
+        <button type="button">Parse</button>
+        <div id="parsed-code"></div>
+      </form>
+    </div>
+  </body>
+</html>
