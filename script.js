@@ -19,11 +19,13 @@ function showResults() {
     textarea.value = "";
     for (let i = 0; i < textList.length; i++) {
       // only grab elements with a property and a value
-      if (textList[i].match(re).length !== 2) {
+      if (textList[i].match(re).length > 2) {
         let xmlProperty = textList[i].match(re)[1];
         let xmlVlaue = textList[i].match(re)[2];
         let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-        textarea.value += xmlData + "\n";
+        if (xmlProperty !== undefined || xmlVlaue !== undefined) {
+          textarea.value += xmlData + "\n";
+        }
       }
     }
   } else {
@@ -38,11 +40,15 @@ function showResults() {
         let xmlProperty = textList[i].match(re)[0];
         let xmlVlaue = textList[i].match(re)[1];
         let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-        textarea.value += xmlData + "\n";
+        if (xmlData !== "undefined: undefined") {
+          textarea.value += xmlData + "\n";
+        }
       }
     }
   }
 }
+
+textarea.value.replace("undefined: undefined", "");
 
 btn.addEventListener("click", () => {
   showResults();
