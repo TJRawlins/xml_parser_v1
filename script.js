@@ -14,8 +14,11 @@ function showResults() {
   if (xmlCheckbox.checked) {
     const textSplit = text.split("\n");
     for (let i = 0; i < textSplit.length; i++) {
-      textList.push(textSplit[i]);
+      if (textSplit[i].match("erml")) {
+        textList.push(textSplit[i]);
+      }
     }
+    console.log(textList);
     textarea.value = "";
     for (let i = 0; i < textList.length; i++) {
       // only grab elements with a property and a value
@@ -31,12 +34,14 @@ function showResults() {
   } else {
     const textSplit = text.split("><");
     for (let i = 0; i < textSplit.length; i++) {
-      textList.push(textSplit[i]);
+      if (textSplit[i].match("erml")) {
+        textList.push(textSplit[i]);
+      }
     }
     textarea.value = "";
     for (let i = 0; i < textList.length; i++) {
       // only grab elements with a property and a value
-      if (textList[i].match(re).length !== 2) {
+      if (textList[i].match(re).length > 2) {
         let xmlProperty = textList[i].match(re)[0];
         let xmlVlaue = textList[i].match(re)[1];
         let xmlData = `${xmlProperty}: ${xmlVlaue}`;
@@ -47,8 +52,6 @@ function showResults() {
     }
   }
 }
-
-textarea.value.replace("undefined: undefined", "");
 
 btn.addEventListener("click", () => {
   showResults();
