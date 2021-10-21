@@ -5,7 +5,7 @@ const textarea = document.querySelector("form textarea");
 const xmlCheckbox = document.getElementById("newline");
 const results = document.getElementById("results");
 
-const re = /(?<=erml:)\w*\s|\w*(?=<)/g;
+const re = /(?<=erml:)\w*\s|[\s\w]*(?=<)/g;
 let textList = [];
 
 function showResults() {
