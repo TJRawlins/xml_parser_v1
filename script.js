@@ -8,52 +8,48 @@ const results = document.getElementById("results");
 const re = /(?<=erml:)\w*\s|[\s\w]*(?=<)/g;
 let textList = [];
 
-function showResults() {
+function getElementValues() {
   const text = textarea.value;
+  const loopArray = (index1, index2, splitString) => {
+    const textSplit = text.split(splitString);
+    for (let i = 0; i < textSplit.length; i++) {
+      if (textSplit[i].match("erml")) {
+        textList.push(textSplit[i]);
+      }
+    }
+    textarea.value = "";
+    for (let i = 0; i < textList.length; i++) {
+      // only grab elements with a property and a value
+      if (textList[i].match(re).length > 2) {
+        let xmlProperty = textList[i].match(re)[index1];
+        let xmlVlaue = textList[i].match(re)[index2];
+        let xmlData = `${xmlProperty}: ${xmlVlaue}`;
+        textarea.value += xmlData + "\n";
+      }
+    }
+  };
+
   // if xml has line breaks
   if (xmlCheckbox.checked) {
-    const textSplit = text.split("\n");
-    for (let i = 0; i < textSplit.length; i++) {
-      if (textSplit[i].match("erml")) {
-        textList.push(textSplit[i]);
-      }
-    }
-    console.log(textList);
-    textarea.value = "";
-    for (let i = 0; i < textList.length; i++) {
-      // only grab elements with a property and a value
-      if (textList[i].match(re).length > 2) {
-        let xmlProperty = textList[i].match(re)[1];
-        let xmlVlaue = textList[i].match(re)[2];
-        let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-        if (xmlProperty !== undefined || xmlVlaue !== undefined) {
-          textarea.value += xmlData + "\n";
-        }
-      }
-    }
+    // const textSplit = text.split("\n");
+    // for (let i = 0; i < textSplit.length; i++) {
+    //   if (textSplit[i].match("erml")) {
+    //     textList.push(textSplit[i]);
+    //   }
+    // }
+    loopArray(1, 2, "\n");
   } else {
-    const textSplit = text.split("><");
-    for (let i = 0; i < textSplit.length; i++) {
-      if (textSplit[i].match("erml")) {
-        textList.push(textSplit[i]);
-      }
-    }
-    textarea.value = "";
-    for (let i = 0; i < textList.length; i++) {
-      // only grab elements with a property and a value
-      if (textList[i].match(re).length > 2) {
-        let xmlProperty = textList[i].match(re)[0];
-        let xmlVlaue = textList[i].match(re)[1];
-        let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-        if (xmlData !== "undefined: undefined") {
-          textarea.value += xmlData + "\n";
-        }
-      }
-    }
+    // const textSplit = text.split("><");
+    // for (let i = 0; i < textSplit.length; i++) {
+    //   if (textSplit[i].match("erml")) {
+    //     textList.push(textSplit[i]);
+    //   }
+    // }
+    loopArray(0, 1, "><");
   }
 }
 
 btn.addEventListener("click", () => {
-  showResults();
+  getElementValues();
   textList = [];
 });
