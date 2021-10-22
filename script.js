@@ -20,7 +20,8 @@ function getElementValues() {
     }
     textarea.value = "";
     for (let i = 0; i < textList.length; i++) {
-      let regex = null;
+      let regex = re;
+      console.log(textList[i].match(regex));
       textList[i].match("tooltip") ? (regex = re2) : (regex = re);
       // only grab elements with a property and a value
       if (textList[i].match(regex).length > 2) {
