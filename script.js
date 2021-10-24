@@ -16,7 +16,7 @@ function getElementValues() {
     for (let i = 0; i < textSplit.length; i++) {
       if (textSplit[i].match("erml")) {
         textList.push(textSplit[i]);
-        console.log(textSplit[i]); // <erml:State tooltip="State Recorded">MN</erml:State>
+        //console.log(textSplit[i]); // <erml:State tooltip="State Recorded">MN</erml:State>
       }
     }
     textarea.value = "";
@@ -27,15 +27,14 @@ function getElementValues() {
       textList[i].match("tooltip") ? (regex = re2) : (regex = re);
 
       // only grab elements with a property and a value
-      if (textList[i].match(regex).length > 2) {
-        let lineArray = [...textList[i].match(regex)];
-
-        if (lineArray.filter((n) => n).length !== 1) {
-          let xmlProperty = lineArray.filter((n) => n)[index1];
-          let xmlVlaue = lineArray.filter((n) => n)[index2];
-          let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-          textarea.value += xmlData + "\n";
-        }
+      let lineArray = [...textList[i].match(regex)];
+      lineArray = lineArray.filter((n) => n);
+      console.log(lineArray);
+      if (lineArray.length === 2) {
+        let xmlProperty = lineArray.filter((n) => n)[index1];
+        let xmlVlaue = lineArray.filter((n) => n)[index2];
+        let xmlData = `${xmlProperty}: ${xmlVlaue}`;
+        textarea.value += xmlData + "\n";
       }
     }
   };
