@@ -29,8 +29,8 @@ function getElementValues() {
       // only grab elements with a property and a value
       let lineArray = [...textList[i].match(regex)];
       lineArray = lineArray.filter((n) => n);
-      console.log(lineArray);
-      if (lineArray.length === 2) {
+
+      if (Object.keys(lineArray).length === 2) {
         let xmlProperty = lineArray.filter((n) => n)[index1];
         let xmlVlaue = lineArray.filter((n) => n)[index2];
         let xmlData = `${xmlProperty}: ${xmlVlaue}`;
