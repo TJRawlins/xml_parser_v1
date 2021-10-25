@@ -43,7 +43,7 @@ function getElementValues() {
   if (xmlCheckbox.checked) {
     loopArray(0, 1, "\n");
   } else {
-    loopArray(0, 1, /(><|>,<)/);
+    loopArray(0, 1, /(><|>,<)/g);
   }
 }
 
