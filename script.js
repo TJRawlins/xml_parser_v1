@@ -10,6 +10,7 @@ const re2 = /(?<=tooltip=")[\w\s]*|[-\/\\%^$*+?.()|[\]{}\-\d\s\w]*(?=<)/g;
 let textList = [];
 
 function getElementValues() {
+  // split chunk
   const text = textarea.value;
   const loopArray = (index1, index2, splitString) => {
     const textSplit = text.split(splitString);
@@ -22,12 +23,11 @@ function getElementValues() {
     textarea.value = "";
 
     for (let i = 0; i < textList.length; i++) {
-      let regex = re;
-
-      textList[i].match("tooltip") ? (regex = re2) : (regex = re);
+      let regex = textList[i].match("tooltip") ? re2 : re;
 
       // only grab elements with a property and a value
-      let lineArray = [...textList[i].match(regex)];
+      console.log([...textList[i].match(regex)]);
+      let lineArray = [...textList[i].match(regex)]; // *** BUG ***
       lineArray = lineArray.filter((n) => n);
 
       if (Object.keys(lineArray).length === 2) {
@@ -43,7 +43,8 @@ function getElementValues() {
   if (xmlCheckbox.checked) {
     loopArray(0, 1, "\n");
   } else {
-    loopArray(0, 1, /(><|>,<)/g);
+    // loopArray(0, 1, /(><|>,<)/g);
+    loopArray(0, 1, /("><"|">,<)/);
   }
 }
 
