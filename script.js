@@ -6,7 +6,7 @@ const xmlCheckbox = document.getElementById("newline");
 const results = document.getElementById("results");
 
 const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
-const re2 = /(?<=tooltip=")[\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
+const re2 = /(?<=tooltip=")[()\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
 let textList = [];
 
 function getElementValues() {
@@ -43,9 +43,17 @@ function getElementValues() {
   if (xmlCheckbox.checked) {
     loopArray(0, 1, "\n");
   } else {
-    // loopArray(0, 1, /(><|>,<)/g);
+    textarea.value = formatXml(textarea.value);
     loopArray(0, 1, "><");
   }
+}
+
+function formatXml(xml) {
+  var formatted = "";
+  xml.split(/>\s*</).forEach(function (node) {
+    formatted += "<" + node + ">\r\n";
+  });
+  return formatted.substring(1, formatted.length - 3);
 }
 
 btn.addEventListener("click", () => {
