@@ -6,7 +6,7 @@ const xmlCheckbox = document.getElementById("newline");
 const results = document.getElementById("results");
 
 const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
-const re2 = /(?<=tooltip=")[()\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
+const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
 let textList = [];
 
 function getElementValues() {
