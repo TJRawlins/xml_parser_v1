@@ -5,8 +5,8 @@ const textarea = document.querySelector("form textarea");
 const xmlCheckbox = document.getElementById("newline");
 const results = document.getElementById("results");
 
-const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()|[\]{}\-\s\w]*(?=<)/g;
-const re2 = /(?<=tooltip=")[\w\s]*|[-\/\\%^$*+?.()|[\]{}\-\d\s\w]*(?=<)/g;
+const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
+const re2 = /(?<=tooltip=")[\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
 let textList = [];
 
 function getElementValues() {
@@ -44,7 +44,7 @@ function getElementValues() {
     loopArray(0, 1, "\n");
   } else {
     // loopArray(0, 1, /(><|>,<)/g);
-    loopArray(0, 1, /("><"|">,<)/);
+    loopArray(0, 1, /(><|>,<)/);
   }
 }
 
