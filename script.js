@@ -44,7 +44,7 @@ function getElementValues() {
     loopArray(0, 1, "\n");
   } else {
     // loopArray(0, 1, /(><|>,<)/g);
-    loopArray(0, 1, /(><|>,<)/);
+    loopArray(0, 1, "><");
   }
 }
 
