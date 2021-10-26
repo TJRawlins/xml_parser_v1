@@ -44,7 +44,7 @@ function getElementValues() {
     loopArray(0, 1, "\n");
   } else {
     textarea.value = formatXml(textarea.value);
-    loopArray(0, 1, "><");
+    loopArray(0, 1, "\n");
   }
 }
 
