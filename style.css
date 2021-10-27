@@ -51,7 +51,7 @@ form button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(240, 240, 240);
+  /* background-color: rgb(240, 240, 240); */
   height: 60vh;
   width: 150px;
   font-size: 5rem;
