@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 
 * {
   margin: 0;
@@ -7,9 +8,11 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Roboto", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -38,7 +41,27 @@ form textarea {
 }
 
 form button {
+  color: #888;
   padding: 0.5rem 1rem;
+}
+
+.message {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  height: 60vh;
+  width: 150px;
+  font-size: 5rem;
+  color: #999;
+  writing-mode: vertical-rl;
+  text-orientation: sideways-right;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(120%);
+  /* transform: translateX(220%); */
+  /* z-index: 999; */
 }
 
 .xml-structure {
@@ -48,6 +71,17 @@ form button {
   font-size: 0.8rem;
 }
 
-.xml-structure label {
-  transform: translateY(50%);
+.checkbox-label {
+  color: #555;
+}
+
+#newline {
+  width: 12px;
+  transform: translateY(10%);
+}
+
+#container-title {
+  font-size: 1.15rem;
+  font-family: "Cairo", sans-serif;
+  color: #555;
 }

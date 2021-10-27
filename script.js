@@ -1,9 +1,11 @@
 "use strict";
 
-const btn = document.querySelector("form button");
+const parseBtn = document.querySelector("#parse");
+const clearBtn = document.querySelector("#clear");
+const copyBtn = document.querySelector("#copy");
 const textarea = document.querySelector("form textarea");
 const xmlCheckbox = document.getElementById("newline");
-const results = document.getElementById("results");
+const msg = document.querySelector(".message");
 
 const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
 const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
@@ -48,6 +50,7 @@ function getElementValues() {
   }
 }
 
+// format unstructured xml
 function formatXml(xml) {
   var formatted = "";
   xml.split(/>\s*</).forEach(function (node) {
@@ -56,7 +59,27 @@ function formatXml(xml) {
   return formatted.substring(1, formatted.length - 3);
 }
 
-btn.addEventListener("click", () => {
+function displayMessage(btnClicked) {
+  msg.innerText = btnClicked;
+  msg.style.transform = "translateX(220%)";
+  setTimeout(() => {
+    msg.style.transform = "translateX(120%)";
+  }, 1000);
+}
+
+parseBtn.addEventListener("click", () => {
+  displayMessage("PARSED");
   getElementValues();
   textList = [];
+});
+
+clearBtn.addEventListener("click", () => {
+  displayMessage("CLEARED");
+  textarea.value = "";
+});
+
+copyBtn.addEventListener("click", () => {
+  displayMessage("COPIED");
+  textarea.select();
+  navigator.clipboard.writeText(textarea.value);
 });

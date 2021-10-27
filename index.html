@@ -14,15 +14,20 @@
   </head>
   <body>
     <!-- <div id="results"></div> -->
+    <div class="message">COPIED</div>
     <div class="parse-form">
       <form>
-        <label>Enter XML Code:</label>
+        <label id="container-title">XML Parser</label>
         <div class="xml-structure">
-          <label>Structured XML</label>
+          <label class="checkbox-label">Structured</label>
           <input type="checkbox" id="newline" checked />
         </div>
-        <textarea></textarea>
-        <button type="button">Parse</button>
+        <textarea placeholder="Enter XML here..."></textarea>
+        <div class="buttons-container">
+          <button type="button" id="parse">Parse</button>
+          <button type="button" id="clear">Clear</button>
+          <button type="button" id="copy">Copy</button>
+        </div>
         <div id="parsed-code"></div>
       </form>
     </div>
