@@ -9,14 +9,61 @@
 
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
   font-family: "Roboto", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
+}
+
+#parser-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  width: 100%;
+}
+
+#time-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* background-color: #555; */
+  color: #999;
+  /* height: 10vh;
+  width: 100%; */
+  z-index: 9999;
+}
+
+.time-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #888; */
+  padding: 0.25rem;
+  margin: 0.5rem;
+  /* width: 40px; */
+}
+
+.time-zone span.tz {
+  font-weight: bold;
+  /* font-size: 1.25rem; */
+  font-size: 2.75vh;
+  margin-bottom: -3px;
+}
+
+.time-zone span.tz-city {
+  font-size: 1.5vh;
+}
+
+.time-zone span.tz-time {
+  font-size: 2vh;
 }
 
 form {
@@ -30,11 +77,13 @@ form {
   box-shadow: 0 1px 5px 0 rgb(0 0 0 / 40%);
   border: 1px rgb(172, 172, 172) solid;
   height: 60vh;
+  width: 40vw;
 }
 
 form textarea {
   height: 500px;
-  width: 500px;
+  width: 100%;
+  max-width: 100%;
   padding: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -45,23 +94,21 @@ form button {
   padding: 0.5rem 1rem;
 }
 
+.btn {
+  cursor: pointer;
+}
+
 .message {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(240, 240, 240); */
-  height: 60vh;
-  width: 150px;
-  font-size: 5rem;
-  color: #999;
-  writing-mode: vertical-rl;
-  text-orientation: sideways-right;
+  font-size: 10vw;
+  font-weight: bold;
+  color: rgba(153, 153, 153, 0.336);
+  opacity: 0;
   transition: all 0.5s ease-in-out;
-  transform: translateX(120%);
-  /* transform: translateX(220%); */
-  /* z-index: 999; */
+  z-index: 999;
 }
 
 .xml-structure {

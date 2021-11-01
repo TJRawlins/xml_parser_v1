@@ -13,23 +13,56 @@
     <title>XML Parser</title>
   </head>
   <body>
-    <!-- <div id="results"></div> -->
-    <div class="message">COPIED</div>
-    <div class="parse-form">
-      <form>
-        <label id="container-title">XML Parser</label>
-        <div class="xml-structure">
-          <label class="checkbox-label">Structured</label>
-          <input type="checkbox" id="newline" checked />
-        </div>
-        <textarea placeholder="Enter XML here..."></textarea>
-        <div class="buttons-container">
-          <button type="button" id="parse">Parse</button>
-          <button type="button" id="clear">Clear</button>
-          <button type="button" id="copy">Copy</button>
-        </div>
-        <div id="parsed-code"></div>
-      </form>
-    </div>
+    <section id="time-container">
+      <div class="time-zone">
+        <span class="tz">Eastern</span
+        ><span class="tz-city">New York - Miami-Dade</span
+        ><span class="tz-time" id="eastern">00:00 PM</span>
+      </div>
+      <div class="time-zone">
+        <span class="tz">Central</span
+        ><span class="tz-city">Chicago - Dallas</span
+        ><span class="tz-time" id="central">00:00 PM</span>
+      </div>
+      <div class="time-zone">
+        <span class="tz">Mountain</span
+        ><span class="tz-city">Phoenix - Denver</span
+        ><span class="tz-time" id="mountain">00:00 PM</span>
+      </div>
+      <div class="time-zone">
+        <span class="tz">Pacific</span
+        ><span class="tz-city">Washington - Los Angeles</span
+        ><span class="tz-time" id="pacific">00:00 PM</span>
+      </div>
+      <div class="time-zone">
+        <span class="tz">Alaska</span><span class="tz-city">Anchorage</span
+        ><span class="tz-time" id="alaska">00:00 PM</span>
+      </div>
+      <div class="time-zone">
+        <span class="tz">Hawaii</span><span class="tz-city">Honolulu</span
+        ><span class="tz-time" id="hawaii">00:00 PM</span>
+      </div>
+    </section>
+    <section id="parser-container">
+      <div class="parse-form">
+        <form>
+          <label id="container-title">XML Parser</label>
+          <div class="xml-structure">
+            <label class="checkbox-label">Formatted</label>
+            <input type="checkbox" id="newline" checked />
+          </div>
+          <textarea placeholder="Paste XML here..."></textarea>
+          <div class="buttons-container">
+            <button type="button" class="btn" id="parse">Parse</button>
+            <button type="button" class="btn" id="clear">Clear</button>
+            <button type="button" class="btn" id="copy">Copy</button>
+          </div>
+          <div id="parsed-code"></div>
+        </form>
+      </div>
+    </section>
+    <section id="message-container">
+      <div class="message">COPIED</div>
+    </section>
   </body>
 </html>

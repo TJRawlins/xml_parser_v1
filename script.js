@@ -6,6 +6,12 @@ const copyBtn = document.querySelector("#copy");
 const textarea = document.querySelector("form textarea");
 const xmlCheckbox = document.getElementById("newline");
 const msg = document.querySelector(".message");
+const easternTime = document.getElementById("eastern");
+const centralTime = document.getElementById("central");
+const mountainTime = document.getElementById("mountain");
+const pacificTime = document.getElementById("pacific");
+const alaskaTime = document.getElementById("alaska");
+const hawaiiTime = document.getElementById("hawaii");
 
 const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
 const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
@@ -61,12 +67,82 @@ function formatXml(xml) {
 
 function displayMessage(btnClicked) {
   msg.innerText = btnClicked;
-  msg.style.transform = "translateX(220%)";
+  msg.style.opacity = "1";
   setTimeout(() => {
-    msg.style.transform = "translateX(120%)";
+    msg.style.opacity = "0";
   }, 1000);
 }
 
+// SHOW TIMEZONES
+function showTimeZones(timeZoneElement, country, city) {
+  let date = new Date(new Date()).toLocaleString("en-US", {
+    timeZone: `${country}/${city}`,
+    hour12: true,
+  });
+  timeZoneElement.innerText = `${date.match(/\s\d*:\d*/)} ${date.match(
+    /\s\wM/
+  )}`;
+  setTimeout(showTimeZones, null, timeZoneElement, country, city, null, 6000);
+}
+
+showTimeZones(easternTime, "America", "New_York");
+showTimeZones(centralTime, "America", "Chicago");
+showTimeZones(mountainTime, "America", "Phoenix");
+showTimeZones(pacificTime, "America", "Los_Angeles");
+showTimeZones(alaskaTime, "America", "Anchorage");
+showTimeZones(hawaiiTime, "Pacific", "Honolulu");
+
+// -----
+// let easternDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "America/New_York",
+//   hour12: true,
+// });
+// easternTime.innerText = `${easternDate.match(/\s\d*:\d*/)} ${easternDate.match(
+//   /\s\wM/
+// )}`;
+// // -----
+// let centralDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "America/Chicago",
+//   hour12: true,
+// });
+// centralTime.innerText = `${centralDate.match(/\s\d*:\d*/)} ${centralDate.match(
+//   /\s\wM/
+// )}`;
+// // -----
+// let mountainDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "America/Denver",
+//   hour12: true,
+// });
+// mountainTime.innerText = `${mountainDate.match(
+//   /\s\d*:\d*/
+// )} ${mountainDate.match(/\s\wM/)}`;
+// // -----
+// let pacificDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "America/Los_Angeles",
+//   hour12: true,
+// });
+// pacificTime.innerText = `${pacificDate.match(/\s\d*:\d*/)} ${mountainDate.match(
+//   /\s\wM/
+// )}`;
+// // -----
+// let alaskaDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "America/Anchorage",
+//   hour12: true,
+// });
+// alaskaTime.innerText = `${alaskaDate.match(/\s\d*:\d*/)} ${mountainDate.match(
+//   /\s\wM/
+// )}`;
+// // -----
+// let hawaiiDate = new Date(new Date()).toLocaleString("en-US", {
+//   timeZone: "Pacific/Honolulu",
+//   hour12: true,
+// });
+// hawaiiTime.innerText = `${hawaiiDate.match(/\s\d*:\d*/)} ${mountainDate.match(
+//   /\s\wM/
+// )}`;
+// // -----
+
+// Event Listeners
 parseBtn.addEventListener("click", () => {
   displayMessage("PARSED");
   getElementValues();
