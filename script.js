@@ -24,8 +24,8 @@ function getElementValues() {
     const textSplit = text.split(splitString);
     for (let i = 0; i < textSplit.length; i++) {
       if (textSplit[i].match("erml")) {
-        textList.push(textSplit[i]);
         //console.log(textSplit[i]); // <erml:State tooltip="State Recorded">MN</erml:State>
+        textList.push(textSplit[i]);
       }
     }
     textarea.value = "";
@@ -34,11 +34,12 @@ function getElementValues() {
       let regex = textList[i].match("tooltip") ? re2 : re;
 
       // only grab elements with a property and a value
-      console.log([...textList[i].match(regex)]);
+      // console.log([...textList[i].match(regex)]);
       let lineArray = [...textList[i].match(regex)]; // *** BUG ***
       lineArray = lineArray.filter((n) => n);
+      console.log(lineArray);
 
-      if (Object.keys(lineArray).length === 2) {
+      if (Object.keys(lineArray).length >= 2) {
         let xmlProperty = lineArray.filter((n) => n)[index1];
         let xmlVlaue = lineArray.filter((n) => n)[index2];
         let xmlData = `${xmlProperty}: ${xmlVlaue}`;
@@ -51,18 +52,8 @@ function getElementValues() {
   if (xmlCheckbox.checked) {
     loopArray(0, 1, "\n");
   } else {
-    textarea.value = formatXml(textarea.value);
-    loopArray(0, 1, "\n");
+    loopArray(1, 2, "\n");
   }
-}
-
-// format unstructured xml
-function formatXml(xml) {
-  var formatted = "";
-  xml.split(/>\s*</).forEach(function (node) {
-    formatted += "<" + node + ">\r\n";
-  });
-  return formatted.substring(1, formatted.length - 3);
 }
 
 function displayMessage(btnClicked) {
@@ -91,56 +82,6 @@ showTimeZones(mountainTime, "America", "Phoenix");
 showTimeZones(pacificTime, "America", "Los_Angeles");
 showTimeZones(alaskaTime, "America", "Anchorage");
 showTimeZones(hawaiiTime, "Pacific", "Honolulu");
-
-// -----
-// let easternDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "America/New_York",
-//   hour12: true,
-// });
-// easternTime.innerText = `${easternDate.match(/\s\d*:\d*/)} ${easternDate.match(
-//   /\s\wM/
-// )}`;
-// // -----
-// let centralDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "America/Chicago",
-//   hour12: true,
-// });
-// centralTime.innerText = `${centralDate.match(/\s\d*:\d*/)} ${centralDate.match(
-//   /\s\wM/
-// )}`;
-// // -----
-// let mountainDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "America/Denver",
-//   hour12: true,
-// });
-// mountainTime.innerText = `${mountainDate.match(
-//   /\s\d*:\d*/
-// )} ${mountainDate.match(/\s\wM/)}`;
-// // -----
-// let pacificDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "America/Los_Angeles",
-//   hour12: true,
-// });
-// pacificTime.innerText = `${pacificDate.match(/\s\d*:\d*/)} ${mountainDate.match(
-//   /\s\wM/
-// )}`;
-// // -----
-// let alaskaDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "America/Anchorage",
-//   hour12: true,
-// });
-// alaskaTime.innerText = `${alaskaDate.match(/\s\d*:\d*/)} ${mountainDate.match(
-//   /\s\wM/
-// )}`;
-// // -----
-// let hawaiiDate = new Date(new Date()).toLocaleString("en-US", {
-//   timeZone: "Pacific/Honolulu",
-//   hour12: true,
-// });
-// hawaiiTime.innerText = `${hawaiiDate.match(/\s\d*:\d*/)} ${mountainDate.match(
-//   /\s\wM/
-// )}`;
-// // -----
 
 // Event Listeners
 parseBtn.addEventListener("click", () => {
