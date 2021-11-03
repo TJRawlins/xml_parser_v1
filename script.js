@@ -13,8 +13,9 @@ const pacificTime = document.getElementById("pacific");
 const alaskaTime = document.getElementById("alaska");
 const hawaiiTime = document.getElementById("hawaii");
 
-const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.;&=()@,|[\]{}\-\s\w]*(?=<)/g;
+const re = /(?<=erml:)\w*|[-\/\\%^$*+?.;&=()@,|[\]{}\-\s\w]*(?=<)/g;
 const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
+const re3 = /(?<=erml:)\w*|(?<=Name=")[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*/g;
 let textList = [];
 
 function getElementValues() {
@@ -24,20 +25,23 @@ function getElementValues() {
     const textSplit = text.split(splitString);
     for (let i = 0; i < textSplit.length; i++) {
       if (textSplit[i].match("erml")) {
-        //console.log(textSplit[i]); // <erml:State tooltip="State Recorded">MN</erml:State>
-        textList.push(textSplit[i].replace(/\s/g, ""));
+        textList.push(textSplit[i].replace(/(?<!.)\s*/, ""));
+        console.log(textSplit[i].replace(/(?<!.)\s*/, "")); // <erml:State tooltip="State Recorded">MN</erml:State>
       }
     }
     textarea.value = "";
 
     for (let i = 0; i < textList.length; i++) {
       let regex = textList[i].match("tooltip") ? re2 : re;
+      if (textList[i].match("Attachment")) {
+        regex = re3;
+      }
 
       // only grab elements with a property and a value
       // console.log([...textList[i].match(regex)]);
       let lineArray = [...textList[i].match(regex)]; // *** BUG ***
       lineArray = lineArray.filter((n) => n);
-      console.log(lineArray);
+      // console.log(lineArray);
 
       if (Object.keys(lineArray).length >= 2) {
         let xmlProperty = lineArray.filter((n) => n)[index1];
