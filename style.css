@@ -103,7 +103,7 @@ form button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 10vw;
+  font-size: 3rem;
   font-weight: bold;
   /* color: rgba(153, 153, 153, 0.336); */
   color: #f1f1f1;
