@@ -39,7 +39,7 @@ function getElementValues() {
 
       // only grab elements with a property and a value
       // console.log([...textList[i].match(regex)]);
-      let lineArray = [...textList[i].match(regex)]; // *** BUG ***
+      let lineArray = [...textList[i].match(regex)];
       lineArray = lineArray.filter((n) => n);
       // console.log(lineArray);
 
@@ -53,11 +53,7 @@ function getElementValues() {
   };
 
   // xml has line breaks
-  if (xmlCheckbox.checked) {
-    loopArray(0, 1, "\n");
-  } else {
-    loopArray(1, 2, /[>]$/);
-  }
+  loopArray(0, 1, "\n");
 }
 
 function displayMessage(btnClicked) {

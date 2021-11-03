@@ -111,22 +111,6 @@ form button {
   z-index: 999;
 }
 
-.xml-structure {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 0.8rem;
-}
-
-.checkbox-label {
-  color: #555;
-}
-
-#newline {
-  width: 12px;
-  transform: translateY(10%);
-}
-
 #container-title {
   font-size: 1.15rem;
   font-family: "Cairo", sans-serif;
