@@ -13,7 +13,7 @@ const pacificTime = document.getElementById("pacific");
 const alaskaTime = document.getElementById("alaska");
 const hawaiiTime = document.getElementById("hawaii");
 
-const re = /(?<=erml:)\w*|[-\/\\%^$*+?.;&=()@,|[\]{}\-\s\w]*(?=<)/g;
+const re = /(?<=erml:)\w*|[-\/\\%^$*+?.:;&=()@,|[\]{}\-\s\w]*(?=<)/g;
 const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
 const re3 = /(?<=erml:)\w*|(?<=Name=")[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*/g;
 let textList = [];
