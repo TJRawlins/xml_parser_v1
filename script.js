@@ -58,7 +58,7 @@ function getElementValues() {
 
 function displayMessage(btnClicked) {
   msg.innerText = btnClicked;
-  msg.style.opacity = "1";
+  msg.style.opacity = "0.2";
   setTimeout(() => {
     msg.style.opacity = "0";
   }, 1000);
