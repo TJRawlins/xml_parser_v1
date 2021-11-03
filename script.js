@@ -13,7 +13,7 @@ const pacificTime = document.getElementById("pacific");
 const alaskaTime = document.getElementById("alaska");
 const hawaiiTime = document.getElementById("hawaii");
 
-const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.()@,|[\]{}\-\s\w]*(?=<)/g;
+const re = /(?<=erml:)\w*\s|[-\/\\%^$*+?.;&=()@,|[\]{}\-\s\w]*(?=<)/g;
 const re2 = /(?<=tooltip=")[().,\w\s]*|[-\/\\%^$*+?.()@,|[\]{}\-\d\s\w]*(?=<)/g;
 let textList = [];
 
@@ -25,7 +25,7 @@ function getElementValues() {
     for (let i = 0; i < textSplit.length; i++) {
       if (textSplit[i].match("erml")) {
         //console.log(textSplit[i]); // <erml:State tooltip="State Recorded">MN</erml:State>
-        textList.push(textSplit[i]);
+        textList.push(textSplit[i].replace(/\s/g, ""));
       }
     }
     textarea.value = "";
@@ -52,7 +52,7 @@ function getElementValues() {
   if (xmlCheckbox.checked) {
     loopArray(0, 1, "\n");
   } else {
-    loopArray(1, 2, "\n");
+    loopArray(1, 2, /[>]$/);
   }
 }
 
