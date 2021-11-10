@@ -8,6 +8,7 @@ const xmlCheckbox = document.getElementById("newline");
 const msg = document.querySelector(".message");
 const easternTime = document.getElementById("eastern");
 const centralTime = document.getElementById("central");
+
 const mountainTime = document.getElementById("mountain");
 const pacificTime = document.getElementById("pacific");
 const alaskaTime = document.getElementById("alaska");
@@ -31,24 +32,28 @@ function getElementValues() {
     }
     textarea.value = "";
 
-    for (let i = 0; i < textList.length; i++) {
-      let regex = textList[i].match("tooltip") ? re2 : re;
-      if (textList[i].match("Attachment")) {
-        regex = re3;
-      }
+    try {
+      for (let i = 0; i < textList.length; i++) {
+        let regex = textList[i].match("tooltip") ? re2 : re;
+        if (textList[i].match("Attachment")) {
+          regex = re3;
+        }
 
-      // only grab elements with a property and a value
-      // console.log([...textList[i].match(regex)]);
-      let lineArray = [...textList[i].match(regex)];
-      lineArray = lineArray.filter((n) => n);
-      // console.log(lineArray);
+        // only grab elements with a property and a value
+        // console.log([...textList[i].match(regex)]);
+        let lineArray = [...textList[i].match(regex)];
+        lineArray = lineArray.filter((n) => n);
+        // console.log(lineArray);
 
-      if (Object.keys(lineArray).length >= 2) {
-        let xmlProperty = lineArray.filter((n) => n)[index1];
-        let xmlVlaue = lineArray.filter((n) => n)[index2];
-        let xmlData = `${xmlProperty}: ${xmlVlaue}`;
-        textarea.value += xmlData + "\n";
+        if (Object.keys(lineArray).length >= 2) {
+          let xmlProperty = lineArray.filter((n) => n)[index1];
+          let xmlVlaue = lineArray.filter((n) => n)[index2];
+          let xmlData = `${xmlProperty}: ${xmlVlaue}`;
+          textarea.value += xmlData + "\n";
+        }
       }
+    } catch (err) {
+      alert(err.message);
     }
   };
 
