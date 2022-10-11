@@ -39,7 +39,7 @@ body::after {
   width: 550px;
   padding: 1rem;
   align-items: center;
-  /* background-color: rgba(2, 53, 100, 0.445); */
+  background-color: rgba(2, 53, 100, 0.555);
   /* background-color: rgba(15, 54, 112, 0.445); */
   border: rgba(255, 255, 255, 0.493) solid 1px;
   border-radius: 25px;
