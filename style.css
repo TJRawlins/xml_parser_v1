@@ -8,7 +8,8 @@
 
 body {
   background-color: #faf441;
-  background: url("https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltde3655b1b382728e/605c336223b7510ecf1ede3a/US_SouthPort_US_Header.jpg");
+  /* background: url("https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltde3655b1b382728e/605c336223b7510ecf1ede3a/US_SouthPort_US_Header.jpg"); */
+  background: url("https://static.vecteezy.com/system/resources/previews/003/423/634/original/grey-gradient-abstract-backgrounds-free-vector.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,7 +27,7 @@ body::after {
   content: "";
   top: 0;
   left: 0;
-  background-color: #0872a3;
+  /* background-color: #0872a3; */
   opacity: 0.5;
   width: 100vw;
   height: 100vh;
