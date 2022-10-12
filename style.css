@@ -96,6 +96,10 @@ button.gsc-search-button{
   cursor: pointer;
 }
 
+button.gsc-search-button:hover {
+  opacity: 0.75;
+}
+
 .gsc-input-box {
   height: 40px;
 }
