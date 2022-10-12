@@ -116,12 +116,12 @@ input {
 /* search results */
 
 .gsc-modal-background-image-visible {
-  opacity: 0.5 !important;
-  background-color: #003852 !important;
+  /* opacity: 0.5 !important; */
+  background-color: rgba(2, 53, 100, 0.555) !important;
 }
 
 .gsc-results-wrapper-overlay {
-  background-color: rgba(255, 255, 255, 0.904) !important;
+  /* background-color: rgba(255, 255, 255, 0.74) !important; */
   border-radius: 15px !important;
 }
 
