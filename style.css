@@ -47,11 +47,28 @@ body::after {
 }
 
 .container .search-title {
+  position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 3.5rem;
   color: #fff;
   justify-content: center;
   text-shadow: rgba(1, 1, 1, 0.5) 1px 2px 10px;
+}
+
+.container .search-title:after {
+  content: "";
+  background: url('https://i.pinimg.com/favicons/6c228420571642744baec4784336421c961c7065ef0ecddfe83c1f13.png');
+  position: absolute;
+  top: -92px;
+  left: -155px;
+  width: 353px;
+  height: 263px;
+  transform: scale(30%) rotate(220deg);
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  /* display: block; */
+  /* background-color: red; */
+  z-index: 1;
 }
 
 .search-title span {
@@ -62,7 +79,8 @@ body::after {
 .container p {
   color: #ffe7a3;
   font-size: 0.9rem;
-  margin-left: -5px;
+  padding-left: 30px;
+  padding-top: 5px;
 }
 
 .gcse-search,#___gcse_0 {
