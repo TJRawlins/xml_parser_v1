@@ -34,6 +34,8 @@ body::after {
   z-index: -1
 }
 
+/* Results container border radius */
+
 .gsc-results-wrapper-visible {
   border-radius: 25px !important;
 }
@@ -128,6 +130,17 @@ input {
   background-color: rgba(2, 53, 100, 0.555) !important;
 }
 
+.gsc-inline-block {
+  border-left: rgba(185, 185, 185, 0.253) 1px solid !important ;
+  border-right: rgba(185, 185, 185, 0.253) 1px solid !important ;
+  /* border-top: rgba(185, 185, 185, 0.253) 1px solid !important ; */
+  border-radius: 5px;
+}
+
+.gsc-orderby-label, .gsc-option-menu-container {
+  border: none !important;
+}
+
 .gs-title, .gcsc-find-more-on-google, .gsc-refinementHeader.gsc-refinementhActive span {
   color: rgb(1, 113, 165) !important;
   font-weight: bold;
@@ -145,7 +158,6 @@ input {
 }
 
 .gsc-webResult.gsc-result {
-  /* border: 1px solid #ffbe0a !important; */
   border: none !important;
 }
 
