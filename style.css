@@ -120,29 +120,40 @@ input {
 /* search results */
 
 .gsc-modal-background-image-visible {
-  /* opacity: 0.5 !important; */
   background-color: rgba(2, 53, 100, 0.555) !important;
 }
 
-.gsc-results-wrapper-overlay {
-  /* background-color: rgba(255, 255, 255, 0.74) !important; */
-  border-radius: 15px !important;
-}
-
-.gs-title {
-  color: rgb(0, 113, 165) !important;
+.gs-title, .gcsc-find-more-on-google, .gsc-refinementHeader.gsc-refinementhActive span {
+  color: rgb(1, 113, 165) !important;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .gs-visibleUrl-breadcrumb {
-  color: #158edf !important;
+  color: #2f99ca !important;
+}
+
+.gs-webResult.gs-result a.gs-title:link b, .gs-webResult.gs-result a.gs-title:link b, b {
+  color: rgb(1, 113, 165) !important;
+  font-family: 'Arial Narrow Bold', sans-serif;
+  font-weight: bolder;
 }
 
 .gsc-webResult.gsc-result {
   /* border: 1px solid #ffbe0a !important; */
   border: none !important;
 }
+
+
+.gsc-refinementHeader.gsc-refinementhActive {
+  border-bottom: 2px solid rgb(1, 113, 165)  !important;
+}
+
+.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet {
+  font-size: 14px !important;
+  color: rgb(102, 102, 102) !important;
+}
+
 
 
 /* Ads */
