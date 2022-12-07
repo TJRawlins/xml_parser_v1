@@ -1,5 +1,5 @@
 "use strict";
-const removeAdsBtn = document.getElementById("noAds");
+// const removeAdsBtn = document.getElementById("noAds");
 
 function removeAds() {
         if(document.body.contains(document.querySelector('iframe'))) {
@@ -11,9 +11,9 @@ function removeAds() {
         }
 }
 
-removeAdsBtn.addEventListener('click', ()=> {
-        removeAds();
-})
+// removeAdsBtn.addEventListener('click', ()=> {
+//         removeAds();
+// })
      
 document.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {

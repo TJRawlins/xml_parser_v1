@@ -8,17 +8,70 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <title>eRecording Guide Search</title>
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="xmlparser.css" />
+    <script src="search.js" defer></script>
+    <script src="xmlparser.js" defer></script>
+    <title>eRec Toolbox</title>
   </head>
+
   <body>
+  <nav id="navbar">
     <div class="container">
-      <button id="noAds" class="pulse-button" hidden>Remove Ads</button>
-      <h1 class="search-title">eRecording <span>Search</span></h1>
-      <p>Search for eRecording documentation, guides, & forms</p>
+      <h1 class="search-title">eRecording<span> Search</span></h1>
+      <!-- <p>Search for eRecording documentation, guides, & forms</p> -->
       <div class="gcse-search"></div>
     </div>
+  </nav>
+
+  <div id="time-container">
+    <div class="time-zone">
+      <span class="tz">Eastern</span
+      ><span class="tz-city">New York - Miami-Dade</span
+      ><span class="tz-time" id="eastern">00:00 PM</span>
+    </div>
+    <div class="time-zone">
+      <span class="tz">Central</span
+      ><span class="tz-city">Chicago - Dallas</span
+      ><span class="tz-time" id="central">00:00 PM</span>
+    </div>
+    <div class="time-zone">
+      <span class="tz">Mountain</span
+      ><span class="tz-city">Phoenix - Denver</span
+      ><span class="tz-time" id="mountain">00:00 PM</span>
+    </div>
+    <div class="time-zone">
+      <span class="tz">Pacific</span
+      ><span class="tz-city">Washington - Los Angeles</span
+      ><span class="tz-time" id="pacific">00:00 PM</span>
+    </div>
+    <div class="time-zone">
+      <span class="tz">Alaska</span><span class="tz-city">Anchorage</span
+      ><span class="tz-time" id="alaska">00:00 PM</span>
+    </div>
+    <div class="time-zone">
+      <span class="tz">Hawaii</span><span class="tz-city">Honolulu</span
+      ><span class="tz-time" id="hawaii">00:00 PM</span>
+    </div>
+  </div>
+
+    <section id="parser-container">
+      <div class="parse-form">
+        <form>
+          <label id="container-title">XML Parser<div class="message">COPIED</div></label>
+          <textarea
+            spellcheck="false"
+            placeholder="Paste XML here..."
+          ></textarea>
+          <div class="buttons-container">
+            <button type="button" class="btn" id="parse">Parse</button>
+            <button type="button" class="btn" id="clear">Clear</button>
+            <button type="button" class="btn" id="copy">Copy</button>
+          </div>
+          <div id="parsed-code"></div>
+        </form>
+      </div>
+    </section>
   </body>
   <script async src="https://cse.google.com/cse.js?cx=c06775966a0c84522">
   </script>

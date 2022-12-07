@@ -7,8 +7,8 @@
 }
 
 body {
+  position: relative;
   background-color: #faf441;
-  /* background: url("https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltde3655b1b382728e/605c336223b7510ecf1ede3a/US_SouthPort_US_Header.jpg"); */
   background: url("https://static.vecteezy.com/system/resources/previews/003/423/634/original/grey-gradient-abstract-backgrounds-free-vector.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   overflow: hidden;
 }
@@ -27,7 +27,6 @@ body::after {
   content: "";
   top: 0;
   left: 0;
-  /* background-color: #0872a3; */
   opacity: 0.5;
   width: 100vw;
   height: 100vh;
@@ -40,37 +39,45 @@ body::after {
   border-radius: 25px !important;
 }
 
-
-.container {
+#navbar {
   display: flex;
-  flex-direction: column;
-  width: 550px;
-  padding: 1rem;
-  align-items: center;
   background-color: rgba(2, 53, 100, 0.555);
-  /* background-color: rgba(15, 54, 112, 0.445); */
-  border: rgba(255, 255, 255, 0.493) solid 1px;
+  width: 100vw;
+  justify-content: center;
+}
+
+#navbar .container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 550px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  align-items: center;
+  /* background-color: rgba(2, 53, 100, 0.555); */
+  /* border: rgba(255, 255, 255, 0.493) solid 1px; */
   border-radius: 25px;
 }
 
 .container .search-title {
   position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   color: #fff;
   justify-content: center;
   text-shadow: rgba(1, 1, 1, 0.5) 1px 2px 10px;
+  padding-left: 10px;
 }
 
 .container .search-title:after {
   content: "";
   background: url('https://i.pinimg.com/favicons/6c228420571642744baec4784336421c961c7065ef0ecddfe83c1f13.png');
   position: absolute;
-  top: -92px;
-  left: -155px;
+  top: -115px;
+  left: -158px;
   width: 353px;
   height: 263px;
-  transform: scale(30%) rotate(220deg);
+  transform: scale(15%) rotate(220deg);
   opacity: 0.5;
   mix-blend-mode: overlay;
   /* display: block; */
@@ -79,15 +86,34 @@ body::after {
 }
 
 .search-title span {
+  position: absolute;
+  top: 25px;
+  left: 80px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
+  font-size: .75rem;
 }
 
 .container p {
+  position: absolute;
+  top: 90px;
+  left: 140px;
   color: #ffe7a3;
-  font-size: 0.9rem;
+  font-size: 0.65rem;
   padding-left: 30px;
   padding-top: 5px;
+}
+
+/* SEARCH BAR */
+.gsc-input-box {
+  border-radius: 10px;
+  height: 35px !important;
+}
+
+#___gcse_0 > div, .gsc-control-cse .gsc-control-cse-en {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 10px !important;
+  margin-top: 5px !important;
 }
 
 .gcse-search,#___gcse_0 {
@@ -97,19 +123,23 @@ body::after {
 }
 
 button.gsc-search-button{
+  position: relative;
   border: #fff;
   border-radius: 50%;
-  height: 65px;
+  height: 50px !important;
   cursor: pointer;
+}
+
+#___gcse_0 > div > div > form > table > tbody > tr > td.gsc-search-button > button > svg {
+  position: absolute;
+  top: 40%;
+  left: 40%;
 }
 
 button.gsc-search-button:hover {
   opacity: 0.75;
 }
 
-.gsc-input-box {
-  height: 40px;
-}
 
 .gsc-input-box table {
   height: 100%;
@@ -199,6 +229,52 @@ input {
   padding-right: 10px;
   z-index: 9999999;
 }
+
+/* TIME ZONES */
+
+#time-container {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  /* box-shadow: rgba(68, 68, 68, 0.144) 2px 2px 10px; */
+  /* width: 100%; */
+  z-index: 9999;
+}
+
+
+.time-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 0.5rem;
+}
+
+.time-zone span.tz {
+  font-weight: bold;
+  font-size: .75rem;
+  margin-bottom: -3px;
+  color: rgb(214, 214, 214);
+}
+
+.time-zone span.tz-city {
+  font-size: .5rem;
+  color: rgb(214, 214, 214);
+}
+
+.time-zone span.tz-time {
+  font-size: .75rem;
+  font-weight: bolder;
+  color: rgb(214, 214, 214);
+}
+
 
 /* ANIMATIONS */
 
