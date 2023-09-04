@@ -126,14 +126,32 @@ body::after {
 button.gsc-search-button{
   position: relative;
   border: #fff;
-  border-radius: 50%;
+  border-radius: 20%;
   cursor: pointer;
   margin-left: 0.5rem;
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.gsc-search-button-v2 {
+  padding: 0 !important;
+  background-color: rgba(68, 201, 235, 0.781) !important;
+}
+
+.gsc-search-button-v2:hover {
+  background-color: #faf441 !important;
+}
+
+.gsc-search-button-v2:hover svg {
+  fill: #2f99ca !important;
 }
 
 #___gcse_0 > div > div > form > table > tbody > tr > td.gsc-search-button > button > svg {
-  top: 40%;
-  left: 40%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  height: 20px;
+  width: 20px;
 }
 
 button.gsc-search-button:hover {
@@ -356,6 +374,6 @@ button.pulse-button:hover {
     width: 80%;
     height: 50px;
     font-size: 1.25rem;
-    
+
   }
 }
