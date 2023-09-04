@@ -343,7 +343,8 @@ button.pulse-button:hover {
   }
 
   form textarea {
-    min-height: 60vh !important;
+    width: 100vw !important;
+    height: 70vw !important;
   }
 
   .buttons-container {
