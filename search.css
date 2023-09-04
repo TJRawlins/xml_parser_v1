@@ -67,6 +67,7 @@ body::after {
   justify-content: center;
   text-shadow: rgba(1, 1, 1, 0.5) 1px 2px 10px;
   padding-left: 10px;
+  margin-bottom: 5px;
 }
 
 .container .search-title:after {
@@ -126,12 +127,11 @@ button.gsc-search-button{
   position: relative;
   border: #fff;
   border-radius: 50%;
-  height: 50px !important;
   cursor: pointer;
+  margin-left: 0.5rem;
 }
 
 #___gcse_0 > div > div > form > table > tbody > tr > td.gsc-search-button > button > svg {
-  position: absolute;
   top: 40%;
   left: 40%;
 }
@@ -300,5 +300,60 @@ button.pulse-button:hover {
     100% {
     transform: scale(.9);
     box-shadow: 0 0 0 0 #ffbe0a00;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  #navbar {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  #time-container {
+    position: initial;
+    background-color: rgb(2, 53, 100);
+    flex-direction: row;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .time-zone span.tz,.time-zone span.tz-time {
+    font-size: 1rem;
+  }
+
+  .time-zone span.tz-city {
+    font-size: 0.75rem;
+  }
+
+  #container-title {
+    font-size: 1.25rem !important;
+  }
+
+  #parser-container form {
+    width: 100vw !important;
+    height: 100vh;
+    margin-top: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  form textarea {
+    min-height: 60vh !important;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .buttons-container button {
+    width: 80%;
+    height: 50px;
+    font-size: 1.25rem;
   }
 }
